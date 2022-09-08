@@ -1,0 +1,49 @@
+h1{
+    height:100px;
+    line-height:80px;
+     background-color: rgba(230,230,230,0.5);
+     box-shadow: 1px 1px 2px gray;
+     font-weight: bolder;
+     width:90%;
+     margin:0px auto;
+ }
+ .header{
+    background-color: lightblue;
+    color: blue;
+    padding: 10px 10px;
+    margin: 0px 0px;
+}
+.Quotes{
+    margin: 20px 20px;
+    border-collapse: separate;  
+     border-spacing: 0 15px;  
+ 
+   
+}
+ .Quote-box{
+    border: 1px red solid;
+    color: blue;
+    margin: 10px 10px;
+    padding: 10px 10px;
+
+}
+.likes{
+    background-color: white;
+    text-align: right;
+    color:black;
+    border-radius: 1rem;
+ padding: 5px 5px; 
+    float:right;
+    font-size: small;
+    border:1px solid black;
+}
+.Author-name{
+    background-color: grey;
+    
+    color:white;
+    border-radius: 1rem;
+    padding: 5px 5px; 
+    font-size: small;
+    font-style: italic;
+    
+}
