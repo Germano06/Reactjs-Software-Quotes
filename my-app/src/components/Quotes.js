@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import "./quotes.css"
 
 export class Quotes extends Component {
   constructor(props) {
@@ -11,6 +11,7 @@ export class Quotes extends Component {
 
   componentDidMount() {
     let aut = sessionStorage.getItem("authName");
+    console.log(aut)
     if (aut != null) {
       document.getElementById("myInput").value = aut;
       sessionStorage.removeItem("authName");
@@ -45,11 +46,6 @@ export class Quotes extends Component {
   render() {
     return (
       <>
-        <center>
-          <h1>
-            <Link to="/">Quotes</Link>
-          </h1>
-        </center>
         <form className="d-flex" style={{ margin: "30px" }}>
           <input
             className="form-control me-2"
@@ -68,8 +64,10 @@ export class Quotes extends Component {
             return (
               <div id="Quote-box" className="Quote-box">
                 <p>{x.quote}</p>
-                <p className="likes">{x.likes}</p>
-                <p className="Author-name">-{x.author}</p>
+                <div className="Subox">
+                  <p className="Author-name">-{x.author}</p>
+                  <p className="likes">{x.likes}</p>
+                </div>
               </div>
             );
           })}

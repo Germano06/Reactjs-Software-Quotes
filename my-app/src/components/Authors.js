@@ -1,16 +1,9 @@
 import React, { useState } from "react";
-import { Link, Router, useNavigate } from "react-router-dom";
-export default function Authors() {
-  const [author, setAuthor] = useState([]);
-  //const [disp,setDisplay]=useState("none");
-  //const [toggle,setToggle]=useState("1");
 
-  let navigate = useNavigate();
-  const routeChange = (x) => {
-    sessionStorage.setItem("authName", x);
-    let path = "/quotes";
-    navigate(path);
-  };
+export default function Authors(props) {
+  const [author, setAuthor] = useState([]);
+
+
   let url = "https://quote-api-app.herokuapp.com/author";
   fetch(url)
     .then((response) => {
@@ -22,11 +15,6 @@ export default function Authors() {
 
   return (
     <>
-      <center>
-        <h1>
-          <Link to="/quotes">Authors</Link>
-        </h1>
-      </center>
       <table className="table table-hover">
         <thead>
           <tr>
@@ -37,15 +25,13 @@ export default function Authors() {
         </thead>
         <tbody>
           {author.map((x) => {
-            const clickAction = () => {
-              routeChange(x);
-            };
+            
             return (
               <tr>
                 <td
                   className="tbody-rows"
                   style={{ textAlign: "center" }}
-                  onClick={clickAction}
+                  onClick={props.click}
                 >
                   {x}
                 </td>
