@@ -42,7 +42,7 @@ function Tabs() {
           <div
             className={toggleState === 1 ? "content  active-content" : "content"}
           >
-            <h3>Quote of the week</h3>
+            <h3>Quote of the day</h3>
             <Routes>
               <Route path="/" element={<Home/>} />
             </Routes>
