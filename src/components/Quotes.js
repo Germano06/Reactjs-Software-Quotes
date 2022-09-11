@@ -28,11 +28,9 @@ export class Quotes extends Component {
 
     fetch(url)
       .then((response) => {
-        console.log([response])
         return response.json();
       })
       .then((data) => {
-        console.log(data)
         this.setState({quotes : data})
       });
   }
