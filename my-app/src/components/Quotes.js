@@ -7,15 +7,11 @@ export class Quotes extends Component {
     this.state = {
       quotes: [],
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
-    let aut = sessionStorage.getItem("authName");
-    console.log(aut)
-    if (aut != null) {
-      document.getElementById("myInput").value = aut;
-      sessionStorage.removeItem("authName");
-    }
+    
     let url = "https://quote-api-app.herokuapp.com/quote";
     fetch(url)
       .then((response) => {
@@ -26,27 +22,25 @@ export class Quotes extends Component {
       });
   }
 
-  handleChange(event) {
-    let author = event.target.value.toUpperCase();
-    let Quotes = document.getElementById("Quotes");
-    let Quote_box = Quotes.getElementsByTagName("div");
-    for (var i = 0; i < Quote_box.length; i++) {
-      let p = Quote_box[i].getElementsByTagName("p")[2];
-      if (p) {
-        let textValue = p.textContent || p.innerHTML;
-        if (textValue.toUpperCase().indexOf(author) > -1) {
-          Quote_box[i].style.display = "";
-        } else {
-          Quote_box[i].style.display = "none";
-        }
-      }
-    }
+  handleChange () {
+    let input = document.getElementById("myInput").value
+    let url = `https://quote-api-app.herokuapp.com/quote/search?author=${input}`;
+
+    fetch(url)
+      .then((response) => {
+        console.log([response])
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data)
+        this.setState({quotes : data})
+      });
   }
 
   render() {
     return (
       <>
-        <form className="d-flex" style={{ margin: "30px" }}>
+        <form className="d-flex" style={{ margin: "30px", height: "50px" ,width:"96%" }}>
           <input
             className="form-control me-2"
             type="search"
@@ -55,7 +49,7 @@ export class Quotes extends Component {
             id="myInput"
             onChange={this.handleChange}
           />
-          <button className="btn btn-outline-success" type="reset">
+          <button className="btn btn-outline-success" type="reset" style={{width:"80px"}}>
             Reset
           </button>
         </form>
