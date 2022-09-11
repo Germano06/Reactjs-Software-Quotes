@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Routes, Route} from "react-router-dom";
 import Authors from "./Authors";
 import Quotes from "./Quotes";
-import Home from "./Home"
+import Home from "./Home";
+import PostForm from "./PostForm"
 import "./tab.css";
 
 function Tabs() {
@@ -36,6 +37,12 @@ function Tabs() {
           >
             Quotes
           </button>
+          <button
+            className={toggleState === 4 ? "tabs active-tabs" : "tabs"}
+            onClick={() => toggleTab(4)}
+          >
+            Add new quote
+          </button>
         </div>
 
         <div className="content-tabs">
@@ -56,7 +63,7 @@ function Tabs() {
             <Routes>
               <Route path="/" element={<Authors
                 click={() => toggleTab(3)}
-                             
+
               />} />
             </Routes>
           </div>
@@ -67,6 +74,17 @@ function Tabs() {
             <Routes>
               <Route path="/" element={<Quotes />} />
             </Routes>
+          </div>
+
+          <div
+            className={toggleState === 4 ? "content  active-content" : "content"}
+          >
+            
+            <Routes>
+              <Route path="/" element={<PostForm/>} />
+            </Routes>
+            
+            
           </div>
         </div>
       </div>

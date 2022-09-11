@@ -4,13 +4,19 @@ export default function Authors(props) {
   const [author, setAuthor] = useState([]);
 
   let url = "https://quote-api-app.herokuapp.com/author";
-  fetch(url)
+  try {
+    fetch(url)
     .then((response) => {
       return response.json();
     })
     .then((data) => {
       setAuthor(data);
     });
+  } catch (error) {
+    console.log(error)
+    
+  }
+  
 
   return (
     <>
@@ -30,7 +36,7 @@ export default function Authors(props) {
                 <td
                   className="tbody-rows"
                   style={{ textAlign: "center" }}
-                  onClick={({target}) => console.log(target.textContent)}
+                  onClick={({target}) => console.log(target.textContent)} //props.click
                   
                 >
                   {x}
