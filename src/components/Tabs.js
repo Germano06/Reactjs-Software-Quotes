@@ -55,7 +55,8 @@ function Tabs() {
           >
             <Routes>
               <Route path="/" element={<Authors
-                click={() => toggleTab(3)}             
+                click={() => toggleTab(3)}
+                             
               />} />
             </Routes>
           </div>

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 export default function Authors(props) {
   const [author, setAuthor] = useState([]);
 
-
   let url = "https://quote-api-app.herokuapp.com/author";
   fetch(url)
     .then((response) => {
@@ -31,7 +30,8 @@ export default function Authors(props) {
                 <td
                   className="tbody-rows"
                   style={{ textAlign: "center" }}
-                  onClick={props.click}
+                  onClick={({target}) => console.log(target.textContent)}
+                  
                 >
                   {x}
                 </td>
