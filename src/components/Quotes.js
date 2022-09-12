@@ -50,7 +50,7 @@ export class Quotes extends Component {
             id="myInput"
             
           />
-          <button onClick={this.handleChange} className="btn btn-outline-success" type="button" style={{width:"80px"}}>
+          <button onClick={this.handleChange} className="btn btn-outline-success" type="button" style={{width:"90px"}}>
             Search
           </button>&nbsp; &nbsp;
           <button onClick={this.clear} className="btn btn-outline-success" type="button" style={{width:"80px"}}>
