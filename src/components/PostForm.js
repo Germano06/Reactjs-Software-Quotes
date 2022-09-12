@@ -20,7 +20,7 @@ class PostForm extends Component {
     submitHandler =e => {
         e.preventDefault()
         console.log(this.state)
-        axios.post('https://quote-api-app.herokuapp.com/', this.state)
+        axios.post('https://quote-api-app.herokuapp.com/quote', this.state)
         .then(response => {
             console.log(response)
         })

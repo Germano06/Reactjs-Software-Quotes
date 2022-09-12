@@ -42,13 +42,13 @@ export class Quotes extends Component {
           <input
             className="form-control me-2"
             type="search"
-            placeholder="Search"
+            placeholder="Search your favourite author"
             aria-label="Search"
             id="myInput"
-            onChange={this.handleChange}
+            // onClick={this.handleChange}
           />
-          <button className="btn btn-outline-success" type="reset" style={{width:"80px"}}>
-            Reset
+          <button onClick={this.handleChange} className="btn btn-outline-success" type="button" style={{width:"80px"}}>
+            Search
           </button>
         </form>
         <div className="Quotes" id="Quotes">

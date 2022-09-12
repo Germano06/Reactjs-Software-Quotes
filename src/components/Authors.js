@@ -16,8 +16,13 @@ export default function Authors(props) {
     console.log(error)
     
   }
-  
 
+  const changeHandler = (x) => {
+    props.click(document.getElementById("myInput").value = x )
+    document.getElementById("myInput").button.click = true
+
+  }
+  
   return (
     <>
       <table className="table table-hover">
@@ -30,13 +35,15 @@ export default function Authors(props) {
         </thead>
         <tbody>
           {author.map((x) => {
-            
+            const clickAction = () => {
+              changeHandler(x);
+            }
             return (
               <tr>
                 <td
                   className="tbody-rows"
                   style={{ textAlign: "center" }}
-                  onClick={({target}) => console.log(target.textContent)} //props.click
+                  onClick={clickAction }
                   
                 >
                   {x}
