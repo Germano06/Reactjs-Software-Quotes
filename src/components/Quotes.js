@@ -34,6 +34,10 @@ export class Quotes extends Component {
         this.setState({quotes : data})
       });
   }
+  clear = () => {
+    document.getElementById("myInput").value = ""
+    this.componentDidMount()
+  }
 
   render() {
     return (
@@ -41,14 +45,16 @@ export class Quotes extends Component {
         <form className="d-flex" style={{ margin: "30px", height: "50px" ,width:"96%" }}>
           <input
             className="form-control me-2"
-            type="search"
             placeholder="Search your favourite author"
             aria-label="Search"
             id="myInput"
-            // onClick={this.handleChange}
+            
           />
           <button onClick={this.handleChange} className="btn btn-outline-success" type="button" style={{width:"80px"}}>
             Search
+          </button>&nbsp; &nbsp;
+          <button onClick={this.clear} className="btn btn-outline-success" type="button" style={{width:"80px"}}>
+            Clear
           </button>
         </form>
         <div className="Quotes" id="Quotes">
