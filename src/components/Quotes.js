@@ -48,7 +48,7 @@ export class Quotes extends Component {
             placeholder="Search your favourite author"
             aria-label="Search"
             id="myInput"
-            style={{borderRadius:"20px"}}
+            style={{borderRadius:"20px",border:"1px solid black"}}
           />
           <button id="search" onClick={this.handleChange} className="btn btn-outline-success" type="button" style={{width:"90px", borderRadius:"20px"}}>
             Search

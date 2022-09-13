@@ -59,10 +59,10 @@ class PostForm extends Component {
                     <center >
                         <h2>Add New Quote</h2>
                         <div>
-                            <input id="auth" type="text" name="author" value={author} label="hidden" onClick={this.hideLabel} onChange={this.changeHandler} placeholder="Author Name" style={{width:"40%",borderRadius:"10px",height:"50px",padding:"8px"}}/>
+                            <input id="auth" type="text" name="author" value={author} label="hidden" onClick={this.hideLabel} onChange={this.changeHandler} placeholder="Author Name" style={{width:"40%",borderRadius:"10px",height:"50px",padding:"8px",border:"1px solid black"}}/>
                         </div>&nbsp; &nbsp;
                         <div>
-                            <textarea id="quote" type="text" name="quote" value={quote} onClick={this.hideLabel} onChange={this.changeHandler} placeholder="Quote" style={{width:"50%",borderRadius:"10px",height:"10vh", padding:"18px"}}/>
+                            <textarea id="quote" type="text" name="quote" value={quote} onClick={this.hideLabel} onChange={this.changeHandler} placeholder="Quote" style={{width:"50%",borderRadius:"10px",height:"10vh", padding:"18px",border:"1px solid black"}}/>
                         </div>&nbsp; &nbsp;
                         <div>
                             <label id="success" className="label label-success" style={{visibility:"hidden"}} ></label>
