@@ -48,12 +48,12 @@ export class Quotes extends Component {
             placeholder="Search your favourite author"
             aria-label="Search"
             id="myInput"
-            
+            style={{borderRadius:"20px"}}
           />
-          <button onClick={this.handleChange} className="btn btn-outline-success" type="button" style={{width:"90px"}}>
+          <button onClick={this.handleChange} className="btn btn-outline-success" type="button" style={{width:"90px", borderRadius:"20px"}}>
             Search
           </button>&nbsp; &nbsp;
-          <button onClick={this.clear} className="btn btn-outline-success" type="button" style={{width:"80px"}}>
+          <button onClick={this.clear} className="btn btn-outline-success" type="button" style={{width:"80px",borderRadius:"20px"}}>
             Clear
           </button>
         </form>

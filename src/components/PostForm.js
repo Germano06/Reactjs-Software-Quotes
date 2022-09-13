@@ -7,10 +7,21 @@ class PostForm extends Component {
 
         this.state = {
             author: "",
-            quote: "",
-            likes: "",
-            dislikes: ""
+            quote: ""
         }
+    }
+
+    hideLabel() {
+        document.getElementById("success").style.visibility = "hidden"
+    }
+
+    showLabel() {
+        document.getElementById("success").style.visibility = "visible"
+    }
+
+    clearLabel() {
+        document.getElementById("auth").value = ""
+        document.getElementById("quote").value = ""
     }
 
     changeHandler = (e) => {
@@ -19,34 +30,40 @@ class PostForm extends Component {
 
     submitHandler =e => {
         e.preventDefault()
-        console.log(this.state)
-        axios.post('https://quote-api-app.herokuapp.com/quote', this.state)
+        axios.post('https://quote-api-app.herokuapp.com/quote/', this.state)
         .then(response => {
-            console.log(response)
+            this.showLabel()
+            document.getElementById("success").innerText = "New Quote has been added"
+            this.clearLabel()
         })
         .catch(error => {
             console.log(error)
+            this.showLabel()
+            document.getElementById("success").innerText = "Quote is already Present"
+            
         })
     }
 
     render() {
-        const { author, quote, likes, dislikes} = this.state
+        const { author, quote} = this.state
         return (
             <div>
-                <form onSubmit={this.submitHandler}>
-                    <div>
-                        <input type="text" name="author" value={author} onChange={this.changeHandler} placeholder="Author Name"/>
-                    </div>
-                    <div>
-                        <input type="text" name="quote" value={quote} onChange={this.changeHandler} placeholder="Quote"/>
-                    </div>
-                    <div>
-                        <input type="text" name="likes" value={likes} onChange={this.changeHandler} placeholder="Likes"/>
-                    </div>
-                    <div>
-                        <input type="text" name="dislikes" value={dislikes} onChange={this.changeHandler} placeholder="Dislikes"/>
-                    </div>
-                    <button type="submit">Submit</button>
+                <form>
+                    <center >
+                        <h2>Add New Quote</h2>
+                        <div>
+                            <input id="auth" type="text" name="author" value={author} label="hidden" onClick={this.hideLabel} onChange={this.changeHandler} placeholder="Author Name" style={{width:"40%",borderRadius:"10px",height:"50px"}}/>
+                        </div>&nbsp; &nbsp;
+                        <div>
+                            <textarea id="quote" type="text" name="quote" value={quote} onClick={this.hideLabel} onChange={this.changeHandler} placeholder="Quote" style={{width:"50%",borderRadius:"10px",height:"10vh"}}/>
+                        </div>&nbsp; &nbsp;
+                        <div>
+                            <label id="success" className="label label-success" style={{visibility:"hidden"}} ></label>
+                        </div>&nbsp; &nbsp;
+                        <div>
+                            <button type="submit" className="btn btn-outline-success" style={{width:"80px",borderRadius:"20px"}} onClick={this.submitHandler}>Submit</button>
+                        </div>
+                    </center>
                 </form>
             </div>
         )
