@@ -29,20 +29,27 @@ class PostForm extends Component {
     }
 
     submitHandler =e => {
-        e.preventDefault()
-        axios.post('https://quote-api-app.herokuapp.com/quote/', this.state)
-        .then(response => {
-            this.showLabel()
-            document.getElementById("success").innerText = "New Quote has been added"
-            this.clearLabel()
-        })
-        .catch(error => {
-            console.log(error)
-            this.showLabel()
-            document.getElementById("success").innerText = "Quote is already Present"
-            
-        })
+    if(this.state.author === " " && this.state.quote === " "){
+        document.getElementById("success").innerText = "Fields are empty"
+        
+    }else {
+            e.preventDefault()
+            axios.post('https://quote-api-app.herokuapp.com/quote/', this.state)
+            .then(response => {
+                this.showLabel()
+                document.getElementById("success").innerText = "New Quote has been added"
+                this.clearLabel()
+            })
+            .catch(error => {
+                console.log(error)
+                this.showLabel()
+                document.getElementById("success").innerText = error.response.data.message
+                
+            })
+        }
+        console.log(this.state.author)
     }
+    
 
     render() {
         const { author, quote} = this.state
@@ -52,10 +59,10 @@ class PostForm extends Component {
                     <center >
                         <h2>Add New Quote</h2>
                         <div>
-                            <input id="auth" type="text" name="author" value={author} label="hidden" onClick={this.hideLabel} onChange={this.changeHandler} placeholder="Author Name" style={{width:"40%",borderRadius:"10px",height:"50px"}}/>
+                            <input id="auth" type="text" name="author" value={author} label="hidden" onClick={this.hideLabel} onChange={this.changeHandler} placeholder="Author Name" style={{width:"40%",borderRadius:"10px",height:"50px",padding:"8px"}}/>
                         </div>&nbsp; &nbsp;
                         <div>
-                            <textarea id="quote" type="text" name="quote" value={quote} onClick={this.hideLabel} onChange={this.changeHandler} placeholder="Quote" style={{width:"50%",borderRadius:"10px",height:"10vh"}}/>
+                            <textarea id="quote" type="text" name="quote" value={quote} onClick={this.hideLabel} onChange={this.changeHandler} placeholder="Quote" style={{width:"50%",borderRadius:"10px",height:"10vh", padding:"18px"}}/>
                         </div>&nbsp; &nbsp;
                         <div>
                             <label id="success" className="label label-success" style={{visibility:"hidden"}} ></label>

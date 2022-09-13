@@ -50,7 +50,7 @@ export class Quotes extends Component {
             id="myInput"
             style={{borderRadius:"20px"}}
           />
-          <button onClick={this.handleChange} className="btn btn-outline-success" type="button" style={{width:"90px", borderRadius:"20px"}}>
+          <button id="search" onClick={this.handleChange} className="btn btn-outline-success" type="button" style={{width:"90px", borderRadius:"20px"}}>
             Search
           </button>&nbsp; &nbsp;
           <button onClick={this.clear} className="btn btn-outline-success" type="button" style={{width:"80px",borderRadius:"20px"}}>

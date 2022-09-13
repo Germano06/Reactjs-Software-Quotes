@@ -18,9 +18,8 @@ export default function Authors(props) {
   }
 
   const changeHandler = (x) => {
-    props.click(document.getElementById("myInput").value = x )
-    // document.getElementById("myInput").button.click = true
-
+    props.click(document.getElementById("myInput").value = x );
+    document.getElementById("search").click();
   }
   
   return (
