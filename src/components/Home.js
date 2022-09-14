@@ -8,16 +8,20 @@ export class Home extends Component {
       quotes: [],
     };
   }
-
+  
 
   componentDidMount() {
     let url = "https://quote-api-app.herokuapp.com/quote";
     fetch(url)
       .then((response) => {
+        
         return response.json();
       })
       .then((data) => {
-        const randomQuote = data[Math.floor(Math.random()*data.length)]; 
+        const now = new Date();
+        const day = now.getDate();
+        const randomQuote = data[Math.floor(day)]; 
+        console.log(randomQuote)
         this.setState({quotes : [randomQuote]})
       });
   }
