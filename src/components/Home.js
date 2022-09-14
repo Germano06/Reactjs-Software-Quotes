@@ -21,7 +21,6 @@ export class Home extends Component {
         const now = new Date();
         const day = now.getDate();
         const randomQuote = data[Math.floor(day)]; 
-        console.log(randomQuote)
         this.setState({quotes : [randomQuote]})
       });
   }

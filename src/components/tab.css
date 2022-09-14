@@ -18,6 +18,7 @@
     word-break: break-all;
     border: 1px solid rgba(0, 0, 0, 0.274);
     border-radius: 15px 15px ;
+
   }
   
   .bloc-tabs {
@@ -36,6 +37,7 @@
     position: relative;
     outline: none;
     border-radius: 15px 15px 0 0 ;
+    
   }
   .tabs:not(:last-child){
     border-right: 1px solid rgba(0, 0, 0, 0.274);
@@ -44,6 +46,7 @@
   .active-tabs  {
     background: white;
     border-bottom: 1px solid transparent;
+    box-shadow: 3px -2px 3px  red;
   }
   
   .active-tabs::before {
