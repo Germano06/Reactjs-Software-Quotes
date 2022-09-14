@@ -8,19 +8,20 @@
  .Quote-box{
     border: 1px black solid;
     border-radius:  1rem;
-    color: blue;
+    color: black;
     margin: 10px 10px;
     padding: 10px 10px;
+    background-color: #EBC7E8;
 }
 
 .Subox {
     display: flex;
     flex-direction: row;
-    color:white;
+    color:black;
     border-radius: 1rem; 
-    /* font-size: small; */
-    /* font-style: italic; */
-    background-color: grey;
+    font-size: small;
+    font-style: italic;
+    background-color: #BFACE0;
     align-content: center;
     justify-content: center;
     
@@ -38,7 +39,7 @@
     float: right;
     font-size: small;
     align-self: center;
-    border: 2px solid red;
+    border: 2px solid #645CAA;
     margin-top: 16px;
     margin-right: 1px;
     text-align: center;

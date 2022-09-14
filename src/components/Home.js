@@ -18,7 +18,6 @@ export class Home extends Component {
       })
       .then((data) => {
         const randomQuote = data[Math.floor(Math.random()*data.length)]; 
-        console.log(randomQuote)
         this.setState({quotes : [randomQuote]})
       });
   }

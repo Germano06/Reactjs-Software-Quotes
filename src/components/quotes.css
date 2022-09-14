@@ -1,11 +1,12 @@
 h1{
     height:100px;
     line-height:80px;
-     background-color: rgba(230,230,230,0.5);
+     background-color: #EBC7E8;
      box-shadow: 1px 1px 2px gray;
      font-weight: bolder;
      width:90%;
      margin:0px auto;
+     border-radius: 50px 50px 50px 50px;
  }
 
 .header{
