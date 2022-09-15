@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./home.css"
+import "./home.css";
 
 export class Home extends Component {
   constructor(props) {
@@ -8,20 +8,33 @@ export class Home extends Component {
       quotes: [],
     };
   }
-  
 
   componentDidMount() {
+    let rq = {};
+    const getRandomQuote = (data, day) => {
+      if (
+        localStorage.getItem("date") == null ||
+        sessionStorage.getItem("quote") == null
+      ) {
+        const randomQuote = data[Math.floor(Math.random() * 84)];
+        console.log(randomQuote);
+        localStorage.setItem("date", day);
+        sessionStorage.setItem("quote", JSON.stringify(randomQuote));
+        console.log(day);
+        return randomQuote;
+      }
+      console.log(JSON.parse(sessionStorage.getItem("quote")));
+      return JSON.parse(sessionStorage.getItem("quote"));
+    };
     let url = "https://quote-api-app.herokuapp.com/quote";
     fetch(url)
       .then((response) => {
-        
         return response.json();
       })
       .then((data) => {
         const now = new Date();
         const day = now.getDate();
-        const randomQuote = data[Math.floor(day)]; 
-        this.setState({quotes : [randomQuote]})
+        this.setState({ quotes: [getRandomQuote(data, day)] });
       });
   }
 
