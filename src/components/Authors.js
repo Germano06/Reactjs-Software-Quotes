@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Authors(props) {
+ function Authors(props) {
   const [author, setAuthor] = useState([]);
 
   let url = "https://quote-api-app.herokuapp.com/author";
@@ -55,3 +55,4 @@ export default function Authors(props) {
     </>
   );
 }
+export default Authors;
